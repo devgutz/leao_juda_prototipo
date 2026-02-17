@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🦁 Leão de Judá</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" href="favicon-leao-de-juda.png" type="image/png" />
+
+    <!-- CORREÇÃO: Versão correta do Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <script>
+      (function () {
+        const TITLES = ["🦁 Leão de Judá", "🏠 Família para Pertencer"];
+        const INTERVAL = 3000;
+        let currentIndex = 0;
+
+        function updateTitle() {
+          currentIndex = (currentIndex + 1) % TITLES.length;
+          document.title = TITLES[currentIndex];
+        }
+
+        window.addEventListener("load", () => {
+          setInterval(updateTitle, INTERVAL);
+        });
+
+        document.title = TITLES[0];
+      })();
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo-navbar">
+          <a href="index.html">
+            <img
+              src="/assets/img/logotipo-nav-branca-bg.png"
+              alt="Logotipo da Leão de Judá"
+            />
+          </a>
+        </div>
+
+        <ul class="navbar-links">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="about-us.html">Sobre Nós</a></li>
+          <li><a href="ministries.html">Ministérios</a></li>
+          <li><a href="contribute.html">Contribua</a></li>
+          <li><a href="contact.html">Contato</a></li>
+        </ul>
+
+        <a href="watch-live.html" class="action_btn_navbar">Ao Vivo</a>
+
+        <!-- CORREÇÃO: Botão toggle dentro da navbar -->
+        <div class="toggle_btn-navbar" id="menuToggle">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <!-- CORREÇÃO: Dropdown menu dentro da navbar -->
+        <div class="dropdown_menu_navbar" id="dropdownMenu">
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="about-us.html">Sobre Nós</a></li>
+            <li><a href="ministries.html">Ministérios</a></li>
+            <li><a href="contribute.html">Contribua</a></li>
+            <li><a href="contact.html">Contato</a></li>
+            <li>
+              <a href="watch-live.html" class="action_btn_navbar">Ao Vivo</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- CORREÇÃO: JavaScript para o menu mobile -->
+    <script>
+      const toggleBtn = document.getElementById("menuToggle");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      toggleBtn.addEventListener("click", () => {
+        dropdownMenu.classList.toggle("open");
+      });
+    </script>
+  </body>
+</html>

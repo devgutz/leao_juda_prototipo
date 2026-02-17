@@ -11,6 +11,7 @@ body {
   color: var(--color-50);
   font-size: 1rem;
   font-weight: var(--menu-text-weight);
+  text-transform: uppercase;
 }
 
 .navbar a:hover {
