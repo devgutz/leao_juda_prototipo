@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leão de Judá</title>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="icon" href="favicon-leao-de-juda.png" type="image/png" />
+
+    <script>
+      (function () {
+        // Configuração
+        const TITLES = ["🦁 Leão de Judá", "🏠 Família para Pertencer"];
+        const INTERVAL = 3000; // 3 segundos
+        let currentIndex = 0;
+
+        // Função para atualizar o título
+        function updateTitle() {
+          currentIndex = (currentIndex + 1) % TITLES.length;
+          document.title = TITLES[currentIndex];
+        }
+
+        // Inicia a alternância quando a página carregar
+        window.addEventListener("load", () => {
+          setInterval(updateTitle, INTERVAL);
+        });
+
+        // Título inicial
+        document.title = TITLES[0];
+      })();
+    </script>
+    <!--Função: Título dinamico que altera entre: Leão de Judá e Família para Pertencer-->
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo-navbar">
+          <a href="index.html"
+            ><img
+              src="/assets/img/logotipo-nav-branca-bg.png"
+              alt="Logotipo da Leão de Judá"
+          /></a>
+        </div>
+        <ul class="navbar-links">
+          <li><a>Início</a></li>
+          <li><a>Sobre Nós</a></li>
+          <li><a>Ministérios</a></li>
+          <li><a>Contribua</a></li>
+          <li><a>Ao Vivo</a></li>
+          <li><a>Contato</a></li>
+        </ul>
+      </div>
+    </header>
+  </body>
+</html>
