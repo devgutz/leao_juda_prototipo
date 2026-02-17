@@ -1,0 +1,171 @@
+body {
+  height: 100vh;
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--color-50);
+  font-size: 1rem;
+  font-weight: var(--menu-text-weight);
+}
+
+.navbar a:hover {
+  color: var(--color-500);
+}
+
+header {
+  position: relative;
+  padding: 0 2rem;
+  /* CORREÇÃO: Navbar com leve transparência */
+  background: rgba(22, 26, 29, 0.85); /* Fundo escuro com transparência */
+  backdrop-filter: blur(8px); /* Efeito de desfoque para melhor legibilidade */
+  -webkit-backdrop-filter: blur(8px); /* Suporte para Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha sutil na borda */
+}
+
+.navbar {
+  width: 100%;
+  height: 80px; /* Aumentei um pouco */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navbar .logo-navbar {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-navbar img {
+  max-height: 50px;
+  width: auto;
+}
+
+.navbar .navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .toggle_btn-navbar {
+  color: var(--color-50);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  z-index: 10;
+}
+
+.navbar .action_btn_navbar {
+  background-color: var(--color-400);
+  color: var(--color-50);
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.navbar .action_btn_navbar:hover {
+  transform: scale(1.05);
+  color: #fff;
+}
+
+.navbar .action_btn_navbar:active {
+  transform: scale(0.95);
+}
+
+/* CORREÇÃO: Dropdown menu */
+.dropdown_menu_navbar {
+  display: none;
+  position: absolute;
+  right: 2rem;
+  top: 70px; /* Ajustado para o novo height */
+  width: 300px;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 100;
+}
+
+.dropdown_menu_navbar.open {
+  display: block;
+  height: auto;
+  max-height: 300px;
+}
+
+.dropdown_menu_navbar ul {
+  list-style: none;
+  padding: 0.5rem 0;
+}
+
+.dropdown_menu_navbar li {
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown_menu_navbar a {
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.dropdown_menu_navbar .action_btn_navbar {
+  display: inline-block;
+  width: auto;
+  margin: 0 auto;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .navbar .navbar-links,
+  .navbar > .action_btn_navbar {
+    display: none;
+  }
+  
+  .navbar .toggle_btn-navbar {
+    display: block;
+  }
+  
+  .dropdown_menu_navbar {
+    display: block;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+  .dropdown_menu_navbar.open {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Ajustes para telas pequenas */
+@media (max-width: 480px) {
+  .dropdown_menu_navbar {
+    right: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  header {
+    padding: 0 1rem;
+  }
+  
+  .navbar .logo-navbar img {
+    max-height: 40px;
+  }
+}
