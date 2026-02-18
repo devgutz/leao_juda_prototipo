@@ -20,6 +20,12 @@
   --title-weight: 700;
   --text-weight: 400;
   --menu-text-weight: 500;
+  
+  /* Variáveis de responsividade */
+  --header-height: 80px;
+  --header-height-mobile: 60px;
+  --container-padding: 2rem;
+  --container-padding-mobile: 1rem;
 }
 
 @font-face {
@@ -35,4 +41,34 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Cy Grotesk Grand", monospace;
+  padding-top: 80px; /* Compensa header fixed */
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ajuste do padding-top para mobile */
+@media (max-width: 992px) {
+  body {
+    padding-top: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+}
+
+/* Classe utilitária para container responsivo */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--container-padding-mobile);
+  }
 }
