@@ -1,0 +1,134 @@
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 5% 100px 5%;
+}
+
+.welcome-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  background: var(--color-500);
+  border-radius: 3px;
+}
+.headline {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+.description {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 40px;
+  line-height: 1.3;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  background: #f0f0f0;
+  padding: 8px 30px 8px 8px;
+  border-radius: 50px;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+.btn-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--color-500);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  color: white;
+}
+
+.welcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 1400px; /* Limita a largura máxima */
+  margin: 0 auto; /* Centraliza o grid */
+}
+
+.welcome-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.welcome-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+  aspect-ratio: 16/9; /* Formato widescreen 16:9 */
+}
+
+.welcome-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  display: block;
+}
+
+/* Efeito Hover */
+.welcome-image-wrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 30px rgba(0, 179, 255, 0.3); /* Usando --color-500 com opacidade */
+}
+
+.welcome-image-wrapper:hover .welcome-image {
+  transform: scale(1.08);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .welcome-section {
+    padding: 50px 4%;
+  }
+  
+  .welcome-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .welcome-section {
+    padding: 40px 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+  
+  .welcome-section {
+    padding: 30px 5%;
+  }
+  
+  .welcome-image-wrapper {
+    aspect-ratio: 16/9; /* Mantido 16:9 também no mobile */
+  }
+}
