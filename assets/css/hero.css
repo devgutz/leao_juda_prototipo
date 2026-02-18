@@ -46,6 +46,7 @@
   color: var(--color-50);
   text-shadow: 2px 2px 4px rgba(0, 18, 26, 0.3);
   word-break: break-word; /* Evita overflow */
+  
 }
 
 .hero-content p {
