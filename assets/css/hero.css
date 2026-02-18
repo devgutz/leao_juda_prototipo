@@ -18,7 +18,7 @@
   background: linear-gradient(
     rgba(0, 18, 26, 0.6),
     rgba(0, 50, 71, 0.4)
-  ), url("/assets/img/hero-bg.jpg") center/cover no-repeat;
+  ), url("assets/img/hero-bg.jpg") center/cover no-repeat;
   z-index: 1;
 }
 
