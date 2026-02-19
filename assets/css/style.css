@@ -1,4 +1,21 @@
-@import url(global.css);
-@import url(header.css);
-@import url(hero.css);
-@import url(welcome.css);
+@import url('global.css');
+@import url('header.css');
+@import url('hero.css');
+@import url('welcome.css');
+
+/* Ajustes adicionais para garantir compatibilidade */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Garantir que links ajam corretamente */
+a {
+  text-decoration: none;
+}
+
+/* Correção para caminhos de imagens no GitHub Pages */
+.hero-background {
+  background-image: url('../img/hero-bg.jpg') !important;
+}

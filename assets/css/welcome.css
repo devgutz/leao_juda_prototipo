@@ -1,9 +1,3 @@
-.container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 5% 100px 5%;
-}
-
 .welcome-badge {
   display: flex;
   align-items: center;
@@ -11,20 +5,23 @@
   font-weight: 600;
   margin-bottom: 30px;
 }
+
 .dot {
   width: 12px;
   height: 12px;
   background: var(--color-500);
   border-radius: 3px;
 }
+
 .headline {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
   font-weight: 700;
   margin-bottom: 40px;
   line-height: 1.2;
 }
+
 .description {
-  font-size: 2rem;
+  font-size: clamp(1.2rem, 3vw, 2rem);
   font-weight: 600;
   color: #333;
   margin-bottom: 40px;
@@ -59,8 +56,8 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   width: 100%;
-  max-width: 1400px; /* Limita a largura máxima */
-  margin: 0 auto; /* Centraliza o grid */
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .welcome-card {
@@ -76,7 +73,7 @@
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   transition: all 0.4s ease;
-  aspect-ratio: 16/9; /* Formato widescreen 16:9 */
+  aspect-ratio: 16/9;
 }
 
 .welcome-image {
@@ -90,7 +87,7 @@
 /* Efeito Hover */
 .welcome-image-wrapper:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 30px rgba(0, 179, 255, 0.3); /* Usando --color-500 com opacidade */
+  box-shadow: 0 20px 30px rgba(0, 179, 255, 0.3);
 }
 
 .welcome-image-wrapper:hover .welcome-image {
@@ -99,10 +96,6 @@
 
 /* Responsividade */
 @media (max-width: 992px) {
-  .welcome-section {
-    padding: 50px 4%;
-  }
-  
   .welcome-grid {
     gap: 20px;
   }
@@ -112,10 +105,6 @@
   .welcome-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
-  .welcome-section {
-    padding: 40px 3%;
-  }
 }
 
 @media (max-width: 480px) {
@@ -124,11 +113,7 @@
     max-width: 400px;
   }
   
-  .welcome-section {
-    padding: 30px 5%;
-  }
-  
   .welcome-image-wrapper {
-    aspect-ratio: 16/9; /* Mantido 16:9 também no mobile */
+    aspect-ratio: 16/9;
   }
 }

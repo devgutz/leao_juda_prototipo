@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🦁 Leão de Judá</title>
     <link rel="stylesheet" href="assets/css/style.css" />
-    <link rel="icon" href="favicon-leao-de-juda.png" type="image/png" />
+    <link
+      rel="icon"
+      href="assets/img/favicon-leao-de-juda.png"
+      type="image/png"
+    />
 
-    <!-- CORREÇÃO: Versão correta do Font Awesome -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -54,12 +58,10 @@
 
         <a href="watch-live.html" class="action_btn_navbar">Ao Vivo</a>
 
-        <!-- CORREÇÃO: Botão toggle dentro da navbar -->
         <div class="toggle_btn-navbar" id="menuToggle">
           <i class="fa-solid fa-bars"></i>
         </div>
 
-        <!-- CORREÇÃO: Dropdown menu dentro da navbar -->
         <div class="dropdown_menu_navbar" id="dropdownMenu">
           <ul>
             <li><a href="index.html">INÍCIO</a></li>
@@ -79,42 +81,35 @@
       <div class="hero-background"></div>
       <div class="hero-content">
         <div class="hero-title">FAMÍLIA<br />LEÃO DE JUDÁ</div>
-        <p
-          style="
-            font-size: 1.5rem;
-            max-width: 400px;
-            opacity: 0.9;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 18, 26, 0.3);
-            margin-left: 0.7rem;
-          "
-        >
-          FAMÍLIA PARA PERTENCER!
-        </p>
+        <p>FAMÍLIA PARA PERTENCER!</p>
       </div>
     </section>
+
     <main class="main-content">
       <section class="container">
         <div class="welcome-badge">
           <span class="dot"></span> Bem-vindo à Leão de Judá!
         </div>
+
         <h2 class="headline">
           Na Comunidade Evangélica Leão de Judá, você encontra mais do que uma
           igreja: você encontra uma família para pertencer e uma vida com
           propósitos.
         </h2>
-        <p class="description">
+
+        <p class="headline">
           Fundada pelo Apóstolo Cássio André e a Bispa Ruth Gianezzi, somos uma
           comunidade que vive e respira os planos de Deus. E o melhor: queremos
           compartilhar tudo isso com você!
         </p>
+
         <section class="welcome-section">
           <div class="welcome-grid">
             <div class="welcome-card">
               <div class="welcome-image-wrapper">
                 <img
-                  src="assets\img\welcome-img1.jpg"
-                  alt="Descrição imagem 1"
+                  src="assets/img/welcome-img1.jpg"
+                  alt="Imagem da comunidade Leão de Judá"
                   class="welcome-image"
                 />
               </div>
@@ -123,8 +118,8 @@
             <div class="welcome-card">
               <div class="welcome-image-wrapper">
                 <img
-                  src="assets\img\welcome-img2.jpg"
-                  alt="Descrição imagem 2"
+                  src="assets/img/welcome-img2.jpg"
+                  alt="Imagem da comunidade Leão de Judá"
                   class="welcome-image"
                 />
               </div>
@@ -133,14 +128,15 @@
             <div class="welcome-card">
               <div class="welcome-image-wrapper">
                 <img
-                  src="assets\img\welcome-img3.jpg"
-                  alt="Descrição imagem 3"
+                  src="assets/img/welcome-img3.jpg"
+                  alt="Imagem da comunidade Leão de Judá"
                   class="welcome-image"
                 />
               </div>
             </div>
           </div>
         </section>
+
         <div class="divisor-simples">
           <div class="linha"></div>
           <div class="cruz-simples">
@@ -151,14 +147,74 @@
       </section>
     </main>
 
-    <!-- CORREÇÃO: JavaScript para o menu mobile -->
     <script>
+      // Menu mobile toggle
       const toggleBtn = document.getElementById("menuToggle");
       const dropdownMenu = document.getElementById("dropdownMenu");
 
-      toggleBtn.addEventListener("click", () => {
-        dropdownMenu.classList.toggle("open");
-      });
+      if (toggleBtn && dropdownMenu) {
+        toggleBtn.addEventListener("click", () => {
+          dropdownMenu.classList.toggle("open");
+        });
+
+        // Fechar menu ao clicar em um link
+        const dropdownLinks = dropdownMenu.querySelectorAll("a");
+        dropdownLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            dropdownMenu.classList.remove("open");
+          });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener("click", (event) => {
+          if (
+            !toggleBtn.contains(event.target) &&
+            !dropdownMenu.contains(event.target)
+          ) {
+            dropdownMenu.classList.remove("open");
+          }
+        });
+
+        (function () {
+          // Efeito parallax no hero
+          const heroBackground = document.querySelector(".hero-background");
+          const heroContent = document.querySelector(".hero-content");
+
+          if (heroBackground && heroContent) {
+            window.addEventListener(
+              "scroll",
+              function () {
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+
+                // Só aplica o efeito enquanto o hero estiver visível
+                if (scrollPosition <= windowHeight) {
+                  // Parallax mais suave - move o background mais devagar que o scroll
+                  const parallaxSpeed = 0.5;
+                  const translateY = scrollPosition * parallaxSpeed;
+
+                  // Aplica a transformação
+                  heroBackground.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.1)`;
+
+                  // Efeito de fade no conteúdo
+                  const opacity = 1 - (scrollPosition / windowHeight) * 0.3;
+                  heroContent.style.opacity = Math.max(opacity, 0.7);
+
+                  // Efeito de escala sutil no conteúdo
+                  const scale = 1 - (scrollPosition / windowHeight) * 0.02;
+                  heroContent.style.transform = `scale(${Math.max(scale, 0.98)})`;
+                }
+              },
+              { passive: true },
+            ); // passive: true para melhor performance
+          }
+
+          // Efeito de reveal suave para o conteúdo ao carregar
+          window.addEventListener("load", function () {
+            document.body.classList.add("loaded");
+          });
+        })();
+      }
     </script>
   </body>
 </html>
