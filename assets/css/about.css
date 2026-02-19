@@ -1,0 +1,177 @@
+/* ----- SEÇÃO ABOUT COM IMAGENS EMPILHADAS ----- */
+.about-section {
+  width: 100%;
+}
+
+.about-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: stretch; /* colunas esticam para mesma altura */
+}
+
+/* Coluna de texto */
+.about-content {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-content h2 {
+  font-size: 2.8rem;
+  font-weight: var(--title-weight, 700);
+  color: var(--color-900, #003247);
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.about-content h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: var(--color-500, #00b3ff);
+  margin-top: 0.75rem;
+  border-radius: 4px;
+}
+
+.about-content p {
+  font-size: 1.2rem;
+  font-weight: var(--text-weight, 400);
+  line-height: 1.6;
+  color: var(--color-800, #005275);
+  margin-bottom: 2rem;
+  flex-grow: 1; /* empurra o botão para baixo */
+}
+
+.about-btn {
+  display: inline-block;
+  background-color: var(--color-500, #00b3ff);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 1rem 2.8rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s;
+  border: 2px solid transparent;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 18px rgba(0, 179, 255, 0.2);
+  align-self: flex-start; /* não estica */
+}
+
+.about-btn:hover {
+  background-color: var(--color-700, #0072a3);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(0, 114, 163, 0.25);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Coluna de imagens - empilhadas verticalmente */
+.about-images-stack {
+  flex: 1 1 45%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  height: 100%; /* respeita altura da coluna */
+}
+
+.image-card {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 25px 35px -12px rgba(0, 50, 70, 0.25);
+  transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+  background: var(--color-50);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  flex: 1 1 auto; /* cada imagem ocupa espaço proporcional */
+  min-height: 0; /* importante para flex children respeitarem altura */
+}
+
+/* primeira imagem ligeiramente maior que a segunda para composição */
+.image-card:first-child {
+  flex: 1.2 1 auto; /* um pouco mais de espaço */
+}
+
+.image-card:last-child {
+  flex: 0.9 1 auto; /* um pouco menor */
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition:
+    transform 0.7s ease,
+    filter 0.5s ease;
+  filter: brightness(0.98) saturate(1.05);
+}
+
+.image-card:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 35px 45px -12px var(--color-700);
+  border-color: var(--color-300);
+}
+
+.image-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.06) saturate(1.2);
+}
+
+/* Responsividade */
+@media (max-width: 850px) {
+  .about-content h2 {
+    font-size: 2.3rem;
+  }
+  .about-content p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .about-images-stack {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .image-card {
+    aspect-ratio: 16/9; /* altura controlada por proporção no mobile */
+    flex: none; /* remove distribuição flex em mobile */
+  }
+
+  .image-card:first-child,
+  .image-card:last-child {
+    flex: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Ajuste fino para que as imagens realmente acompanhem a altura do texto */
+.about-images-stack {
+  min-height: 400px; /* altura mínima garantida */
+}

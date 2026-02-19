@@ -90,6 +90,7 @@
         <div class="welcome-badge">
           <span class="dot"></span> Bem-vindo à Leão de Judá!
         </div>
+        <!--começo da sessão de boas vindas-->
 
         <h2 class="headline">
           Na Comunidade Evangélica Leão de Judá, você encontra mais do que uma
@@ -145,76 +146,90 @@
           <div class="linha"></div>
         </div>
       </section>
+
+      <section class="parallax1" id="parallax1">
+        <div class="parallax-overlay"></div>
+      </section>
+
+      <section class="container">
+        <div class="divisor-simples">
+          <div class="linha"></div>
+          <div class="cruz-simples">
+            <i class="fa-solid fa-church"></i>
+          </div>
+          <div class="linha"></div>
+        </div>
+
+        <div class="welcome-badge">
+          <span class="dot"></span> Um pouco da história de nossa comunidade!
+        </div>
+
+        <section class="about-section">
+          <!-- grid com duas colunas -->
+          <div class="about-grid">
+            <!-- COLUNA 1: texto -->
+            <div class="about-content">
+              <p
+                style="
+                  font-size: clamp(1.0rem, 3vw, 1.8rem);
+                  font-weight: 600;
+                  color: #333;
+                  margin-bottom: 40px;
+                  line-height: 1.3;
+                "
+              >
+                A Igreja Leão de Judá em Jandira é muito mais que um endereço;
+                somos uma casa com história, erguida sobre propósitos eternos e
+                reconhecida como um solo fértil onde Deus gera milagres. Há
+                décadas, testemunhamos vidas sendo transformadas, famílias
+                restauradas e histórias de fé sendo escritas por mãos divinas,
+                consolidando uma trajetória rica em espiritualidade e
+                conquistas. Agora, queremos que você faça parte desse legado
+                vivo. Clique no botão abaixo e conheça um pouco da jornada da
+                sua nova família — venha caminhar conosco e descobrir o lugar
+                especial que Deus preparou para você aqui.
+              </p>
+              <!-- botão que direciona para página sobre nós -->
+              <a
+                href="/sobre"
+                class="about-btn"
+                aria-label="Saiba mais sobre nossa história"
+              >
+                Conhecer nossa história
+              </a>
+            </div>
+
+            <!-- COLUNA 2: imagens empilhadas, uma em cima da outra -->
+            <div class="about-images-stack">
+              <!-- imagem 1 (superior) -->
+              <div class="image-card">
+                <img
+                  src="assets/img/about1-img.jpg"
+                  alt="Equipe criativa em reunião"
+                  loading="lazy"
+                />
+              </div>
+              <!-- imagem 2 (inferior) -->
+              <div class="image-card">
+                <img
+                  src="assets/img/about2-img.jpg"
+                  alt="Ambiente de trabalho colaborativo"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="divisor-simples">
+          <div class="linha"></div>
+          <div class="cruz-simples">
+            <i class="fa-solid fa-church"></i>
+          </div>
+          <div class="linha"></div>
+        </div>
+      </section>
     </main>
 
-    <script>
-      // Menu mobile toggle
-      const toggleBtn = document.getElementById("menuToggle");
-      const dropdownMenu = document.getElementById("dropdownMenu");
-
-      if (toggleBtn && dropdownMenu) {
-        toggleBtn.addEventListener("click", () => {
-          dropdownMenu.classList.toggle("open");
-        });
-
-        // Fechar menu ao clicar em um link
-        const dropdownLinks = dropdownMenu.querySelectorAll("a");
-        dropdownLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            dropdownMenu.classList.remove("open");
-          });
-        });
-
-        // Fechar menu ao clicar fora
-        document.addEventListener("click", (event) => {
-          if (
-            !toggleBtn.contains(event.target) &&
-            !dropdownMenu.contains(event.target)
-          ) {
-            dropdownMenu.classList.remove("open");
-          }
-        });
-
-        (function () {
-          // Efeito parallax no hero
-          const heroBackground = document.querySelector(".hero-background");
-          const heroContent = document.querySelector(".hero-content");
-
-          if (heroBackground && heroContent) {
-            window.addEventListener(
-              "scroll",
-              function () {
-                const scrollPosition = window.scrollY;
-                const windowHeight = window.innerHeight;
-
-                // Só aplica o efeito enquanto o hero estiver visível
-                if (scrollPosition <= windowHeight) {
-                  // Parallax mais suave - move o background mais devagar que o scroll
-                  const parallaxSpeed = 0.5;
-                  const translateY = scrollPosition * parallaxSpeed;
-
-                  // Aplica a transformação
-                  heroBackground.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.1)`;
-
-                  // Efeito de fade no conteúdo
-                  const opacity = 1 - (scrollPosition / windowHeight) * 0.3;
-                  heroContent.style.opacity = Math.max(opacity, 0.7);
-
-                  // Efeito de escala sutil no conteúdo
-                  const scale = 1 - (scrollPosition / windowHeight) * 0.02;
-                  heroContent.style.transform = `scale(${Math.max(scale, 0.98)})`;
-                }
-              },
-              { passive: true },
-            ); // passive: true para melhor performance
-          }
-
-          // Efeito de reveal suave para o conteúdo ao carregar
-          window.addEventListener("load", function () {
-            document.body.classList.add("loaded");
-          });
-        })();
-      }
-    </script>
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
