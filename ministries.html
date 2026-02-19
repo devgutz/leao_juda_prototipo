@@ -75,14 +75,46 @@
       </div>
     </header>
 
+    <section class="hero-section">
+      <div class="hero-background-ministeries"></div>
+      <div class="hero-content">
+        <div class="hero-title">NOSSOS<br />MINISTÉRIOS</div>
+        <p>VENHA SERVIR CONOSCO</p>
+      </div>
+    </section>
     <!-- CORREÇÃO: JavaScript para o menu mobile -->
+
+    <main class="main-content">
+      <section class="container"></section>
+    </main>
     <script>
+      // Menu mobile toggle
       const toggleBtn = document.getElementById("menuToggle");
       const dropdownMenu = document.getElementById("dropdownMenu");
 
-      toggleBtn.addEventListener("click", () => {
-        dropdownMenu.classList.toggle("open");
-      });
+      if (toggleBtn && dropdownMenu) {
+        toggleBtn.addEventListener("click", () => {
+          dropdownMenu.classList.toggle("open");
+        });
+
+        // Fechar menu ao clicar em um link
+        const dropdownLinks = dropdownMenu.querySelectorAll("a");
+        dropdownLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            dropdownMenu.classList.remove("open");
+          });
+        });
+
+        // Fechar menu ao clicar fora
+        document.addEventListener("click", (event) => {
+          if (
+            !toggleBtn.contains(event.target) &&
+            !dropdownMenu.contains(event.target)
+          ) {
+            dropdownMenu.classList.remove("open");
+          }
+        });
+      }
     </script>
   </body>
 </html>

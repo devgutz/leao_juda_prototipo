@@ -19,3 +19,7 @@ a {
 .hero-background {
   background-image: url('../img/hero-bg.jpg') !important;
 }
+
+.hero-background-ministeries {
+  background-image: url('../img/hero-ministeries-bg.png') !important;
+}
