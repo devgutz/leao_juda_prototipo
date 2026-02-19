@@ -16,7 +16,6 @@
   top: 0;
   left: 0;
   width: 100%;
-<<<<<<< HEAD
   height: 100vh;
   background: url("../img/hero-bg.jpg") center/cover no-repeat;
   z-index: -1; /* Coloca atrás de tudo */
@@ -25,11 +24,6 @@
   backface-visibility: hidden;
   perspective: 1000px;
   will-change: transform;
-=======
-  height: 100%;
-  background: url("img/hero-bg.jpg") center/cover no-repeat;
-  z-index: 1;
->>>>>>> fe660b5cc0fb68827ee6fce2f0e3efef0b765466
 }
 
 .hero-content {
