@@ -1,133 +1,214 @@
-// Menu mobile toggle
-const toggleBtn = document.getElementById("menuToggle");
-const dropdownMenu = document.getElementById("dropdownMenu");
+// script.js - Funcionalidades principais
 
-if (toggleBtn && dropdownMenu) {
-  toggleBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    dropdownMenu.classList.toggle("open");
-  });
-
-  // Fechar menu ao clicar em um link
-  const dropdownLinks = dropdownMenu.querySelectorAll("a");
-  dropdownLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      dropdownMenu.classList.remove("open");
-    });
-  });
-
-  // Fechar menu ao clicar fora
-  document.addEventListener("click", (event) => {
-    if (
-      !toggleBtn.contains(event.target) &&
-      !dropdownMenu.contains(event.target)
-    ) {
-      dropdownMenu.classList.remove("open");
-    }
-  });
-}
-
-// Detectar se é dispositivo móvel
-function isMobileDevice() {
-  return window.innerWidth <= 768 || window.matchMedia("(max-width: 768px)").matches;
-}
-
-// Efeito parallax no hero (desabilitado em mobile)
 (function() {
-  const heroBackground = document.querySelector(".hero-background");
-  const heroContent = document.querySelector(".hero-content");
-
-  if (heroBackground && heroContent && !isMobileDevice()) {
-    window.addEventListener(
-      "scroll",
-      function() {
-        const scrollPosition = window.scrollY;
-        const windowHeight = window.innerHeight;
-
-        if (scrollPosition <= windowHeight) {
-          const parallaxSpeed = 0.5;
-          const translateY = scrollPosition * parallaxSpeed;
-
-          heroBackground.style.transform = `translate3d(0, ${translateY}px, 0) scale(1.1)`;
-
-          const opacity = 1 - (scrollPosition / windowHeight) * 0.3;
-          heroContent.style.opacity = Math.max(opacity, 0.7);
-
-          const scale = 1 - (scrollPosition / windowHeight) * 0.02;
-          heroContent.style.transform = `scale(${Math.max(scale, 0.98)})`;
+    'use strict';
+    
+    // Aguarda o carregamento completo do DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // ===== MENU MOBILE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        
+        if (menuToggle && dropdownMenu) {
+            // Toggle do menu ao clicar no botão
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isOpen = dropdownMenu.classList.contains('open');
+                
+                if (isOpen) {
+                    closeMenu();
+                } else {
+                    openMenu();
+                }
+            });
+            
+            // Fechar menu ao clicar em qualquer link
+            const menuLinks = dropdownMenu.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMenu();
+                });
+            });
+            
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (!menuToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+            
+            // Fechar menu ao pressionar ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdownMenu.classList.contains('open')) {
+                    closeMenu();
+                }
+            });
+            
+            function openMenu() {
+                dropdownMenu.classList.add('open');
+                menuToggle.setAttribute('aria-expanded', 'true');
+                menuToggle.setAttribute('aria-label', 'Fechar menu');
+            }
+            
+            function closeMenu() {
+                dropdownMenu.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.setAttribute('aria-label', 'Abrir menu');
+            }
         }
-      },
-      { passive: true },
-    );
-  }
-})();
-
-// Efeito de reveal suave ao carregar
-window.addEventListener("load", function() {
-  document.body.classList.add("loaded");
-});
-
-// Efeito Parallax na seção (desabilitado em mobile)
-(function() {
-  const parallaxSection = document.getElementById("parallax1");
-  
-  if (parallaxSection && !isMobileDevice()) {
-    window.addEventListener("scroll", function() {
-      const scrollPosition = window.scrollY;
-      const sectionTop = parallaxSection.offsetTop;
-      const sectionHeight = parallaxSection.offsetHeight;
-      const windowHeight = window.innerHeight;
-
-      if (
-        scrollPosition + windowHeight > sectionTop &&
-        scrollPosition < sectionTop + sectionHeight
-      ) {
-        const progress = Math.min(
-          1,
-          Math.max(
-            0,
-            (scrollPosition + windowHeight - sectionTop) /
-              (sectionHeight + windowHeight),
-          ),
-        );
-
-        // Reduzido o scale máximo para evitar overflow
-        const scale = 1.15 - progress * 0.15; // Antes era 1.2 - progress * 0.2
-        parallaxSection.style.transform = `scale(${scale})`;
-        parallaxSection.style.transformOrigin = 'center center'; // Garantir que o scale seja centralizado
-      } else if (scrollPosition < sectionTop) {
-        parallaxSection.style.transform = "scale(1.15)"; // Reduzido de 1.2 para 1.15
-        parallaxSection.style.transformOrigin = 'center center';
-      } else {
-        parallaxSection.style.transform = "scale(1)";
-        parallaxSection.style.transformOrigin = 'center center';
-      }
+        
+        // ===== HEADER SCROLL EFFECT =====
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+        
+        if (header) {
+            window.addEventListener('scroll', function() {
+                // Efeito de esconder/mostrar header ao rolar (opcional)
+                if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                    // Rolar para baixo - esconder header
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Rolar para cima - mostrar header
+                    header.style.transform = 'translateY(0)';
+                }
+                
+                // Adicionar fundo mais sólido quando rolar
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(0, 18, 26, 0.98)';
+                } else {
+                    header.style.background = 'rgba(0, 18, 26, 0.95)';
+                }
+                
+                lastScrollY = window.scrollY;
+            });
+        }
+        
+        // ===== EFEITO PARALLAX =====
+        // Função para evitar duplicação de código
+        function setupParallax(sectionId) {
+            const parallaxSection = document.getElementById(sectionId);
+            
+            if (parallaxSection && window.innerWidth > 768) {
+                window.addEventListener('scroll', function() {
+                    const scrollPosition = window.scrollY;
+                    const sectionTop = parallaxSection.offsetTop;
+                    const sectionHeight = parallaxSection.offsetHeight;
+                    const windowHeight = window.innerHeight;
+                    
+                    // Ativar efeito apenas quando a seção estiver visível
+                    if (scrollPosition + windowHeight > sectionTop && 
+                        scrollPosition < sectionTop + sectionHeight) {
+                        
+                        // Efeito de zoom suave (calculado com base no scroll)
+                        const relativeScroll = scrollPosition - sectionTop;
+                        const maxZoom = 1.05;
+                        const minZoom = 1;
+                        
+                        // Aplica zoom apenas dentro de um range
+                        if (relativeScroll > -windowHeight && relativeScroll < sectionHeight + windowHeight) {
+                            const progress = Math.min(Math.max(relativeScroll / (sectionHeight + windowHeight), 0), 1);
+                            const zoom = minZoom + (maxZoom - minZoom) * progress;
+                            parallaxSection.style.transform = `scale(${zoom})`;
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Inicializar parallax para as seções
+        setupParallax('parallax1');
+        setupParallax('parallax2');
+        
+        // ===== DESTACAR LINK ATIVO NO MENU =====
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('.navbar-links a, .dropdown_menu_navbar a');
+        
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            if (linkHref === currentPage) {
+                link.setAttribute('aria-current', 'page');
+                
+                // Opcional: adicionar classe para estilo visual
+                if (!link.classList.contains('action_btn_navbar')) {
+                    link.style.color = 'var(--color-400)';
+                }
+            }
+        });
+        
+        // ===== SCROLL SUAVE PARA LINKS INTERNOS =====
+        const internalLinks = document.querySelectorAll('a[href^="#"]');
+        
+        internalLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // ===== OTIMIZAÇÃO PARA DISPOSITIVOS MÓVEIS =====
+        // Prevenir zoom em inputs em dispositivos iOS
+        const viewportMeta = document.querySelector('meta[name="viewport"]');
+        if (viewportMeta && /iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            viewportMeta.setAttribute('content', 
+                'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes');
+        }
+        
+        // ===== CARREGAMENTO DE IMAGENS COM FALLBACK =====
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                // Fallback para imagem padrão caso alguma não carregue
+                console.warn(`Imagem não carregou: ${this.src}`);
+                // Opcional: definir uma imagem padrão
+                // this.src = 'assets/img/placeholder.jpg';
+            });
+        });
+        
+        console.log('Leão de Judá - Site carregado com sucesso!');
     });
 
-    // Trigger inicial
-    window.dispatchEvent(new Event("scroll"));
-  }
-})();
+})(); // Fechamento correto da IIFE
 
-// Listener para redimensionamento da tela (caso o usuário gire o celular)
-window.addEventListener('resize', function() {
-  if (isMobileDevice()) {
-    // Remove todos os efeitos parallax em mobile
-    const parallaxSection = document.getElementById("parallax1");
-    const heroBackground = document.querySelector(".hero-background");
-    const heroContent = document.querySelector(".hero-content");
-    
-    if (parallaxSection) {
-      parallaxSection.style.transform = 'none';
-    }
-    
-    if (heroBackground) {
-      heroBackground.style.transform = 'none';
-    }
-    
-    if (heroContent) {
-      heroContent.style.opacity = '1';
-      heroContent.style.transform = 'none';
-    }
-  }
-});
+document.addEventListener('DOMContentLoaded', function() {
+            new Swiper('.ministerios-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+                // Efeito de rotação suave
+                effect: 'slide',
+                speed: 800,
+            });
+        });

@@ -1,0 +1,182 @@
+/* ministerios.css - VERSÃO COMPLETA CORRIGIDA */
+
+/* Container da seção */
+.ministerios-section {
+    text-align: center;
+    overflow: visible;
+    position: relative;
+}
+
+.ministerios-titulo {
+    font-size: 2.5rem;
+    font-weight: var(--title-weight);
+    color: var(--color-800);
+    margin-bottom: 2rem;
+}
+
+/* SWIPER - CORREÇÕES CRÍTICAS */
+.ministerios-swiper {
+    width: 100%;
+    overflow: visible !important;
+    padding: 10px 20px 5px 20px !important;
+    margin: 0 auto;
+    position: relative;
+}
+
+.swiper-wrapper {
+    display: flex !important;
+    flex-direction: row !important; /* FORÇA HORIZONTAL */
+    width: 100%;
+    height: auto;
+    transition-timing-function: ease-out;
+}
+
+.swiper-slide {
+    flex: 0 0 auto !important;
+    width: calc(33.333% - 20px) !important; /* Fallback */
+    height: auto !important;
+    display: flex;
+    opacity: 1 !important;
+    transition: all 0.3s ease;
+}
+
+/* Para mobile, o Swiper controla via breakpoints */
+@media (max-width: 640px) {
+    .swiper-slide {
+        width: 100% !important;
+    }
+}
+
+/* Card */
+.ministerio-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.15);
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ministerio-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--color-500);
+    box-shadow: 0 25px 40px -15px rgba(0, 179, 255, 0.4);
+}
+
+/* Imagem */
+.card-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.ministerio-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+/* Conteúdo */
+.card-content {
+    padding: 1.8rem 1.5rem 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: var(--title-weight);
+    color: var(--color-800);
+    margin-bottom: 1rem;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: var(--color-900);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+/* Botões */
+.card-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: var(--color-600);
+    font-weight: var(--menu-text-weight);
+    border: 2px solid var(--color-500);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    align-self: center;
+    margin-top: auto;
+}
+
+.card-btn:hover {
+    background: var(--color-500);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Navegação do Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--color-600);
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: var(--color-500);
+    color: white;
+}
+
+.swiper-pagination-bullet {
+    background: var(--color-300);
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--color-600);
+}
+
+/* Botão todos */
+.ministerios-btn-container {
+    margin-top: 0.1rem;
+    text-align: center;
+}
+
+.btn-todos {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--color-600);
+    color: white;
+    font-weight: var(--menu-text-weight);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 1rem;
+}
+
+.btn-todos:hover {
+    background: var(--color-700);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px var(--color-400);
+}
