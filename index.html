@@ -17,6 +17,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
     <script>
       (function () {
         const TITLES = ["🦁 Leão de Judá", "🏠 Família para Pertencer"];
@@ -227,16 +232,15 @@
         <div class="parallax-overlay"></div>
       </section>
 
-      <section class=" ministerios-section">
+      <section class="container ministerios-section">
         <!-- Divisor com bolinha -->
-         <div class="divisor-simples">
+        <div class="divisor-simples">
           <div class="linha"></div>
           <div class="cruz-simples">
             <i class="fa-solid fa-church"></i>
           </div>
           <div class="linha"></div>
         </div>
-        
 
         <!-- Título da seção -->
         <h2 class="ministerios-titulo">VENHA SERVIR EM NOSSOS MINISTÉRIOS</h2>
@@ -244,69 +248,16 @@
         <!-- Slider Swiper -->
         <div class="swiper ministerios-swiper">
           <div class="swiper-wrapper">
-            <!-- Card 1 - Ação Social -->
-            <div class="swiper-slide">
-              <article class="ministerio-card">
-                <div class="card-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1593113598338-cd288d649433?w=400&h=250&fit=crop"
-                    alt="Ação Social"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="card-content">
-                  <h3 class="card-title">Ação Social</h3>
-                  <p class="card-description">
-                    Levando amor e esperança a comunidades carentes através de
-                    projetos sociais e visitas.
-                  </p>
-                  <a href="/ministerios#acao-social" class="card-btn"
-                    >SAIBA MAIS</a
-                  >
-                </div>
-              </article>
-            </div>
-
-            <!-- Card 2 - Louvor -->
-            <div class="swiper-slide">
-              <article class="ministerio-card">
-                <div class="card-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&h=250&fit=crop"
-                    alt="Ministério de Louvor"
-                    loading="lazy"
-                  />
-                </div>
-                <div class="card-content">
-                  <h3 class="card-title">Ministério de Louvor</h3>
-                  <p class="card-description">
-                    Guiando a igreja em momentos de adoração através da música e
-                    da arte.
-                  </p>
-                  <a href="/ministerios#louvor" class="card-btn">SAIBA MAIS</a>
-                </div>
-              </article>
-            </div>
-
             <!-- Card 3 - Discipulado -->
             <div class="swiper-slide">
               <article class="ministerio-card">
                 <div class="card-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=400&h=250&fit=crop"
-                    alt="Discipulado"
-                    loading="lazy"
-                  />
+                  <img src="assets/img/midia-card.jpg" alt="IN FOCUS - Mídia e Comunicação" />
                 </div>
                 <div class="card-content">
-                  <h3 class="card-title">Discipulado</h3>
-                  <p class="card-description">
-                    Estudos bíblicos e encontros para crescimento na fé e
-                    conhecimento da Palavra.
-                  </p>
-                  <a href="/ministerios#discipulado" class="card-btn"
-                    >SAIBA MAIS</a
-                  >
+                  <h3 class="card-title">IN FOCUS - Mídia e Comunicação</h3>
+                  <p class="card-description">Está na base de Adoração</p>
+                  <a href="/link" class="card-btn">SAIBA MAIS</a>
                 </div>
               </article>
             </div>
@@ -315,19 +266,12 @@
             <div class="swiper-slide">
               <article class="ministerio-card">
                 <div class="card-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1511895426321-dc87141906f8?w=400&h=250&fit=crop"
-                    alt="Ministério da Família"
-                    loading="lazy"
-                  />
+                  <img src="assets/img/louvor-card.jpg" alt="Louvor" />
                 </div>
                 <div class="card-content">
-                  <h3 class="card-title">Ministério da Família</h3>
-                  <p class="card-description">
-                    Apoiando e fortalecendo famílias através de aconselhamento e
-                    eventos especiais.
-                  </p>
-                  <a href="/ministerios#familia" class="card-btn">SAIBA MAIS</a>
+                  <h3 class="card-title">Louvor</h3>
+                  <p class="card-description">Está na base de Adoração</p>
+                  <a href="/link" class="card-btn">SAIBA MAIS</a>
                 </div>
               </article>
             </div>
@@ -336,19 +280,25 @@
             <div class="swiper-slide">
               <article class="ministerio-card">
                 <div class="card-image">
-                  <img
-                    src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=400&h=250&fit=crop"
-                    alt="Ministério Jovem"
-                    loading="lazy"
-                  />
+                  <img src="assets/img/teatro-card.jpg" alt="Teatro" />
                 </div>
                 <div class="card-content">
-                  <h3 class="card-title">Ministério Jovem</h3>
-                  <p class="card-description">
-                    Espaço para jovens se conectarem, crescerem e fazerem a
-                    diferença.
-                  </p>
-                  <a href="/ministerios#jovem" class="card-btn">SAIBA MAIS</a>
+                  <h3 class="card-title">Teatro</h3>
+                  <p class="card-description">Está na base de Adoração</p>
+                  <a href="/link" class="card-btn">SAIBA MAIS</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="swiper-slide">
+              <article class="ministerio-card">
+                <div class="card-image">
+                  <img src="assets/img/liondance-card.jpg" alt="Ministério de Dança - Lion Dance" />
+                </div>
+                <div class="card-content">
+                  <h3 class="card-title">Lion Dance</h3>
+                  <p class="card-description">Está na base de Adoração</p>
+                  <a href="/link" class="card-btn">SAIBA MAIS</a>
                 </div>
               </article>
             </div>
@@ -362,7 +312,7 @@
 
         <!-- Botão centralizado -->
         <div class="ministerios-btn-container">
-          <a href="/ministerios" class="btn-todos"
+          <a href="ministries.html" class="btn-todos"
             >CONHEÇA TODOS OS MINISTÉRIOS</a
           >
         </div>
