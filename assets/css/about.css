@@ -7,7 +7,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
-  align-items: stretch; /* colunas esticam para mesma altura */
+  align-items: stretch;
 }
 
 /* Coluna de texto */
@@ -44,7 +44,7 @@
   line-height: 1.6;
   color: var(--color-800, #005275);
   margin-bottom: 2rem;
-  flex-grow: 1; /* empurra o botão para baixo */
+  flex-grow: 1;
 }
 
 .about-btn {
@@ -56,14 +56,11 @@
   padding: 1rem 2.8rem;
   border-radius: 50px;
   text-decoration: none;
-  transition:
-    background-color 0.3s ease,
-    transform 0.2s ease,
-    box-shadow 0.3s;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s;
   border: 2px solid transparent;
   letter-spacing: 0.5px;
   box-shadow: 0 8px 18px rgba(0, 179, 255, 0.2);
-  align-self: flex-start; /* não estica */
+  align-self: flex-start;
 }
 
 .about-btn:hover {
@@ -80,7 +77,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  height: 100%; /* respeita altura da coluna */
+  height: 100%;
+  min-height: 400px;
 }
 
 .image-card {
@@ -91,17 +89,16 @@
   transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
   background: var(--color-50);
   border: 2px solid rgba(255, 255, 255, 0.5);
-  flex: 1 1 auto; /* cada imagem ocupa espaço proporcional */
-  min-height: 0; /* importante para flex children respeitarem altura */
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
-/* primeira imagem ligeiramente maior que a segunda para composição */
 .image-card:first-child {
-  flex: 1.2 1 auto; /* um pouco mais de espaço */
+  flex: 1.2 1 auto;
 }
 
 .image-card:last-child {
-  flex: 0.9 1 auto; /* um pouco menor */
+  flex: 0.9 1 auto;
 }
 
 .image-card img {
@@ -109,9 +106,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  transition:
-    transform 0.7s ease,
-    filter 0.5s ease;
+  transition: transform 0.7s ease, filter 0.5s ease;
   filter: brightness(0.98) saturate(1.05);
 }
 
@@ -124,54 +119,4 @@
 .image-card:hover img {
   transform: scale(1.08);
   filter: brightness(1.06) saturate(1.2);
-}
-
-/* Responsividade */
-@media (max-width: 850px) {
-  .about-content h2 {
-    font-size: 2.3rem;
-  }
-  .about-content p {
-    font-size: 1.1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .about-grid {
-    gap: 2rem;
-  }
-}
-
-@media (max-width: 650px) {
-  .about-grid {
-    flex-direction: column;
-  }
-
-  .about-images-stack {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .image-card {
-    aspect-ratio: 16/9; /* altura controlada por proporção no mobile */
-    flex: none; /* remove distribuição flex em mobile */
-  }
-
-  .image-card:first-child,
-  .image-card:last-child {
-    flex: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-btn {
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Ajuste fino para que as imagens realmente acompanhem a altura do texto */
-.about-images-stack {
-  min-height: 400px; /* altura mínima garantida */
 }

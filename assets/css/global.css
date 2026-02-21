@@ -38,7 +38,6 @@ body {
   margin: 0;
   min-height: 100vh;
   font-family: "Space Grotesk", sans-serif;
- 
   width: 100%;
   overflow-x: hidden;
 }
@@ -46,7 +45,7 @@ body {
 /* Container unificado */
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 80px 5% 100px 5%;
 }
@@ -70,35 +69,12 @@ body {
   font-size: 14px;
 }
 
-/* Ajuste do padding-top para mobile */
-@media (max-width: 992px) {
-  body {
-    padding-top: 65px;
-  }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-@media (max-width: 480px) {
-  body {
-    padding-top: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    padding: 60px 4% 80px 4%;
-  }
-  
-  .linha {
-    width: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding: 40px 3% 60px 3%;
-  }
-  
-  .linha {
-    width: 80px;
-  }
+a {
+  text-decoration: none;
 }

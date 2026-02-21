@@ -2,20 +2,10 @@
 @import url('header.css');
 @import url('hero.css');
 @import url('welcome.css');
-@import url(parallax1.css);
-@import url(about.css);
+@import url('parallax1.css');
+@import url('about.css');
 
 /* Ajustes adicionais para garantir compatibilidade */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Garantir que links ajam corretamente */
-a {
-  text-decoration: none;
-}
 
 /* Correção para caminhos de imagens no GitHub Pages */
 .hero-background {
@@ -27,4 +17,376 @@ a {
 }
 .parallax1 {
   background-image: url('../img/parallax1-index.jpg') !important;
+}
+
+/* ===== BREAKPOINT: Desktop Grande (1400px) ===== */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 9vw, 7rem);
+  }
+}
+
+/* ===== BREAKPOINT: Desktop / Laptop (1200px) ===== */
+@media (max-width: 1200px) {
+  .navbar .navbar-links {
+    gap: 1.5rem;
+  }
+  
+  .navbar a {
+    font-size: 0.95rem;
+  }
+  
+  .container {
+    padding: 70px 4% 90px 4%;
+  }
+  
+  .welcome-grid {
+    gap: 25px;
+  }
+  
+  .about-grid {
+    gap: 2.5rem;
+  }
+  
+  .about-content h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ===== BREAKPOINT: Laptop / Tablet Grande (992px) ===== */
+@media (max-width: 992px) {
+  body {
+    padding-top: 70px;
+  }
+
+  .navbar .navbar-links,
+  .navbar > .action_btn_navbar {
+    display: none;
+  }
+  
+  .navbar .toggle_btn-navbar {
+    display: block;
+  }
+  
+  .dropdown_menu_navbar {
+    display: none;
+  }
+  
+  .dropdown_menu_navbar.open {
+    display: block;
+  }
+  
+  .navbar {
+    height: 70px;
+  }
+  
+  .logo-navbar img {
+    max-height: 40px;
+  }
+
+  .welcome-grid {
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 8vw, 6rem);
+  }
+  
+  .about-content h2 {
+    font-size: 2.2rem;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+  }
+  
+  .linha {
+    width: 200px;
+  }
+}
+
+/* ===== BREAKPOINT: Tablet (768px) ===== */
+@media (max-width: 768px) {
+  body {
+    padding-top: 65px;
+  }
+
+  header {
+    padding: 0 0.8rem;
+  }
+  
+  .navbar {
+    height: 65px;
+    padding: 0 0.3rem;
+  }
+  
+  .logo-navbar img {
+    max-height: 35px;
+  }
+  
+  .dropdown_menu_navbar {
+    right: 0.8rem;
+    width: calc(100% - 1.6rem);
+    max-width: none;
+    top: 60px;
+  }
+
+  .container {
+    padding: 50px 4% 70px 4%;
+  }
+  
+  .linha {
+    width: 150px;
+  }
+
+  .hero-content {
+    padding: 0 1.2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 7vw, 5rem);
+    letter-spacing: -1px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .hero-content p {
+    margin-left: 0;
+    font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+  }
+  
+  .hero-section::before {
+    background: rgba(0, 18, 26, 0.4);
+  }
+
+  .welcome-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .headline {
+    font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+    margin-bottom: 30px;
+  }
+  
+  .about-grid {
+    gap: 2rem;
+    flex-direction: column;
+  }
+  
+  .about-content {
+    min-width: 100%;
+  }
+  
+  .about-images-stack {
+    min-width: 100%;
+    min-height: 300px;
+  }
+  
+  .about-btn {
+    align-self: center;
+  }
+  
+  .parallax1 {
+    padding-bottom: 50%;
+  }
+}
+
+/* ===== BREAKPOINT: Celular Paisagem / Tablet Pequeno (576px) ===== */
+@media (max-width: 576px) {
+  body {
+    padding-top: 60px;
+  }
+  
+  .navbar {
+    height: 60px;
+  }
+  
+  .logo-navbar img {
+    max-height: 30px;
+  }
+  
+  .navbar .toggle_btn-navbar {
+    font-size: 1.6rem;
+  }
+  
+  .dropdown_menu_navbar {
+    top: 55px;
+  }
+  
+  .dropdown_menu_navbar li {
+    padding: 0.6rem 1rem;
+  }
+  
+  .dropdown_menu_navbar a {
+    font-size: 1rem;
+  }
+  
+  .container {
+    padding: 40px 3% 60px 3%;
+  }
+  
+  .welcome-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 20px;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    line-height: 1.1;
+  }
+  
+  .hero-content p {
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    max-width: 100%;
+  }
+  
+  .hero-section::before {
+    background: rgba(0, 18, 26, 0.5);
+  }
+  
+  .headline {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    margin-bottom: 25px;
+  }
+  
+  .welcome-badge {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .linha {
+    width: 80px;
+  }
+  
+  .cruz-simples {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+  
+  .about-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .about-images-stack {
+    gap: 1rem;
+    min-height: 250px;
+  }
+  
+  .image-card {
+    border-radius: 20px;
+  }
+  
+  .parallax1 {
+    padding-bottom: 60%;
+  }
+  
+  .parallax-overlay {
+    font-size: 1.5em;
+  }
+}
+
+/* ===== BREAKPOINT: Celular Pequeno (480px e abaixo) ===== */
+@media (max-width: 480px) {
+  .navbar .toggle_btn-navbar {
+    font-size: 1.4rem;
+  }
+  
+  .dropdown_menu_navbar {
+    width: calc(100% - 1rem);
+    right: 0.5rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+  }
+  
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  
+  .welcome-image-wrapper {
+    border-radius: 15px;
+  }
+  
+  .about-content h2 {
+    font-size: 2rem;
+  }
+  
+  .about-content h2::after {
+    width: 60px;
+    height: 3px;
+  }
+  
+  .image-card {
+    border-radius: 15px;
+  }
+  
+  .parallax1 {
+    padding-bottom: 70%;
+  }
+}
+
+/* ===== BREAKPOINT: Celular Muito Pequeno (320px) ===== */
+@media (max-width: 320px) {
+  .logo-navbar img {
+    max-height: 25px;
+  }
+  
+  .navbar .toggle_btn-navbar {
+    font-size: 1.3rem;
+  }
+  
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+  }
+
+  .hero-content p {
+    font-size: 0.8rem;
+  }
+  
+  .container {
+    padding: 30px 3% 50px 3%;
+  }
+  
+  .headline {
+    font-size: 1.1rem;
+  }
+  
+  .about-btn {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* Fallback para dispositivos que não suportam position: fixed */
+@supports (-webkit-touch-callout: none) {
+  .hero-background {
+    position: absolute;
+  }
 }

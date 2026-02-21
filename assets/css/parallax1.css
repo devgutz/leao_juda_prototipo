@@ -2,23 +2,21 @@
 .parallax1 {
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* Proporção 16:9 (9/16 = 0.5625) */
+  padding-bottom: 56.25%;
   position: relative;
   overflow: hidden;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("../img/hero-bg.jpg");
-  /* Efeito de escala no scroll */
-  transform: scale(1);
-  transition: transform 0.1s ease-out;
+  background-image: url("../img/parallax1-index.jpg");
+  /* Removido o transform scale padrão que causava overflow */
   will-change: transform;
 }
 
-/* Efeito de zoom out no scroll */
+/* Efeito de zoom out no scroll - AGORA SEM CAUSAR OVERFLOW */
 .parallax1.zoom-out {
-  transform: scale(1.1);
+  transform: scale(1.05); /* Reduzido de 1.1 para 1.05 */
 }
 
 /* Overlay opcional para melhor legibilidade se tiver texto */
@@ -35,4 +33,17 @@
   color: white;
   font-size: 2em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Desabilitar efeitos parallax em dispositivos móveis para evitar problemas */
+@media (max-width: 768px) {
+  .parallax1 {
+    background-attachment: scroll; /* Mudar de fixed para scroll no mobile */
+    transform: none !important; /* Remove qualquer transformação */
+    transition: none !important; /* Remove transições */
+  }
+  
+  .parallax1.zoom-out {
+    transform: none !important;
+  }
 }

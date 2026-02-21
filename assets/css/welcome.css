@@ -93,27 +93,3 @@
 .welcome-image-wrapper:hover .welcome-image {
   transform: scale(1.08);
 }
-
-/* Responsividade */
-@media (max-width: 992px) {
-  .welcome-grid {
-    gap: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .welcome-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-  }
-  
-  .welcome-image-wrapper {
-    aspect-ratio: 16/9;
-  }
-}

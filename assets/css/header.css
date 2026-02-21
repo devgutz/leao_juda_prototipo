@@ -32,7 +32,7 @@ header {
 
 .navbar {
   width: 100%;
-  height: 70px;
+  height: 80px;
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
@@ -49,14 +49,15 @@ header {
 }
 
 .logo-navbar img {
-  max-height: 45px;
+  max-height: 50px;
   width: auto;
   filter: brightness(1.1);
+  transition: max-height 0.3s ease;
 }
 
 .navbar .navbar-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   margin: 0 1rem;
   flex-wrap: wrap;
   justify-content: center;
@@ -68,11 +69,11 @@ header {
   margin-left: 0.5rem;
   background-color: var(--color-500);
   color: var(--color-50);
-  padding: 0.5rem 1.2rem;
+  padding: 0.5rem 1.5rem;
   border: none;
   outline: none;
   border-radius: 25px;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.3s ease;
@@ -100,7 +101,7 @@ header {
   display: none;
   position: absolute;
   right: 1rem;
-  top: 60px;
+  top: 70px;
   width: 280px;
   max-width: 90vw;
   background: rgba(0, 18, 26, 0.98);
@@ -154,100 +155,4 @@ header {
 .dropdown_menu_navbar .action_btn_navbar:hover {
   background-color: var(--color-600);
   transform: scale(1.05);
-}
-
-/* Breakpoints */
-@media (max-width: 1200px) {
-  .navbar .navbar-links {
-    gap: 1rem;
-  }
-  
-  .navbar a {
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 992px) {
-  .navbar .navbar-links,
-  .navbar > .action_btn_navbar {
-    display: none;
-  }
-  
-  .navbar .toggle_btn-navbar {
-    display: block;
-  }
-  
-  .dropdown_menu_navbar {
-    display: none;
-  }
-  
-  .dropdown_menu_navbar.open {
-    display: block;
-  }
-  
-  .navbar {
-    height: 65px;
-  }
-  
-  .logo-navbar img {
-    max-height: 40px;
-  }
-}
-
-@media (max-width: 768px) {
-  header {
-    padding: 0 0.8rem;
-  }
-  
-  .navbar {
-    padding: 0 0.3rem;
-  }
-  
-  .dropdown_menu_navbar {
-    right: 0.8rem;
-    width: calc(100% - 1.6rem);
-    max-width: none;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 0 0.5rem;
-  }
-  
-  .navbar {
-    height: 60px;
-  }
-  
-  .logo-navbar img {
-    max-height: 35px;
-  }
-  
-  .navbar .toggle_btn-navbar {
-    font-size: 1.6rem;
-  }
-  
-  .dropdown_menu_navbar {
-    right: 0.5rem;
-    width: calc(100% - 1rem);
-    top: 55px;
-  }
-  
-  .dropdown_menu_navbar li {
-    padding: 0.7rem 1rem;
-  }
-  
-  .dropdown_menu_navbar a {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 320px) {
-  .logo-navbar img {
-    max-height: 30px;
-  }
-  
-  .navbar .toggle_btn-navbar {
-    font-size: 1.4rem;
-  }
 }
